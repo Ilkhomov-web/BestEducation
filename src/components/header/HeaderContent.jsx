@@ -1,7 +1,27 @@
-import { Box, Typography } from "@mui/material";
-import React from "react";
+import { Box, Button, Typography } from "@mui/material";
+import React, { useState } from "react";
+import AnimatedText from "./AnimationText";
 
 const HeaderContent = () => {
+  const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
+
+  const handleMouseMove = (e) => {
+    const { left, top, width, height } =
+      e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - left; // sichqoncha X koordinatasi
+    const y = e.clientY - top; // sichqoncha Y koordinatasi
+
+    // Markazga nisbatan normalizatsiya (-0.5 dan +0.5 gacha)
+    const rotateY = (x / width - 0.5) * -20; // chap/ong
+    const rotateX = (y / height - 0.5) * 20; // yuqori/past
+
+    setTransform(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
+  };
+
+  const handleMouseLeave = () => {
+    setTransform("rotateX(0deg) rotateY(0deg)"); // qaytarish
+  };
+
   return (
     <Box
       sx={{
@@ -10,16 +30,60 @@ const HeaderContent = () => {
         alignItems: "center",
       }}
     >
-      <Box sx={{ width: "45%" }}>
-        <Typography>Best o'quv markazi haqida</Typography>
-        <Typography>
+      <Box
+        sx={{
+          width: "45%",
+          display: "flex",
+          flexDirection: "column",
+          gap: "20px",
+        }}
+      >
+        <Typography
+          variant="h3"
+          sx={{ display: "flex", alignItems: "center", gap: "10px" }}
+        >
+          The Best <AnimatedText />
+        </Typography>
+        <Typography variant="h6">
           “Best” o‘quv markazi 2014-yilda tashkil topgan. Bosh ofisimiz
           Yakkasaroy tumanida joylashgan Sifatli ta'lim, natijaviylik,
           mas'uliyatlilik. Avval tarbiya, keyin ta'lim.
         </Typography>
+        <Button
+          sx={{
+            width: "200px",
+            background: "#246cb6",
+            color: "white",
+            border: "1px solid #246cb6",
+            "&:hover": {
+              color: "#246cb6",
+              background: "white",
+              border: "1px solid #246cb6",
+            },
+          }}
+        >
+          Ko'proq Ma'lumot
+        </Button>
       </Box>
-      <Box sx={{ width: "50%" }}>
-        <Box component={"img"} width={"100%"} src="/headerImg.png"></Box>
+      <Box
+        sx={{
+          width: "50%",
+          perspective: "1000px", // 3D chuqurlik
+        }}
+      >
+        <Box
+          component="img"
+          src="/headerImg.png"
+          width="100%"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          sx={{
+            transition: "transform 0.2s ease",
+            transform: transform,
+            transformStyle: "preserve-3d",
+            borderRadius: "10px",
+          }}
+        />
       </Box>
     </Box>
   );
