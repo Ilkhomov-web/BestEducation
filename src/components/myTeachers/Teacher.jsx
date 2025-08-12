@@ -23,7 +23,16 @@ const Teacher = () => {
           return (
             <SwiperSlide style={{ display: "flex", flexDirection: "column" }}>
               <Box component={"img"} src={teacher.image}></Box>
-              <Typography>{teacher.name}</Typography>
+              <Typography
+                variant="h6"
+                sx={{
+                  borderLeft: "10px solid #246cb6",
+                  paddingLeft: "10px",
+                  textAlign: "center",
+                }}
+              >
+                {teacher.name}
+              </Typography>
             </SwiperSlide>
           );
         })}

@@ -8,18 +8,15 @@ const HeaderContent = () => {
   const handleMouseMove = (e) => {
     const { left, top, width, height } =
       e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - left; // sichqoncha X koordinatasi
-    const y = e.clientY - top; // sichqoncha Y koordinatasi
-
-    // Markazga nisbatan normalizatsiya (-0.5 dan +0.5 gacha)
-    const rotateY = (x / width - 0.5) * -20; // chap/ong
-    const rotateX = (y / height - 0.5) * 20; // yuqori/past
-
+    const x = e.clientX - left;
+    const y = e.clientY - top;
+    const rotateY = (x / width - 0.5) * -20;
+    const rotateX = (y / height - 0.5) * 20;
     setTransform(`rotateX(${rotateX}deg) rotateY(${rotateY}deg)`);
   };
 
   const handleMouseLeave = () => {
-    setTransform("rotateX(0deg) rotateY(0deg)"); // qaytarish
+    setTransform("rotateX(0deg) rotateY(0deg)");
   };
 
   return (

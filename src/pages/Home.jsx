@@ -4,6 +4,8 @@ import { Box } from "@mui/material";
 import Header from "../components/header/Header";
 import FastMarque from "../components/FastMarque";
 import MyTeachers from "../components/myTeachers/MyTeachers";
+import WhyStudy from "../components/whyStudy/WhyStudy";
+import StudyResult from "../components/studyResult/StudyResult";
 
 const Home = () => {
   return (
@@ -11,6 +13,8 @@ const Home = () => {
       <Navbar />
       <Header />
       <FastMarque />
+      <WhyStudy />
+      <StudyResult />
       <MyTeachers />
     </Box>
   );
