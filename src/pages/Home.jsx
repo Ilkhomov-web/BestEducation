@@ -7,6 +7,7 @@ import MyTeachers from "../components/myTeachers/MyTeachers";
 import WhyStudy from "../components/whyStudy/WhyStudy";
 import StudyResult from "../components/studyResult/StudyResult";
 import Cours from "../components/cours/Cours";
+import OurBranches from "../components/ourBranches/OurBranches";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
       <Cours />
       <FastMarque />
       <MyTeachers />
+      <OurBranches />
     </Box>
   );
 };

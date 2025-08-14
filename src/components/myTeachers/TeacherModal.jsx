@@ -1,4 +1,3 @@
-// TeacherModal.jsx
 import {
   Box,
   Button,
@@ -11,16 +10,18 @@ import {
 import React from "react";
 
 const TeacherModal = ({ handleClose, open, teacher }) => {
-  if (!teacher) return null; // Agar teacher tanlanmagan bo‘lsa, hech narsa ko‘rsatmaymiz
-
+  if (!teacher) return null;
   return (
     <Box>
       <Dialog
         open={open}
         onClose={handleClose}
-        sx={{ display: "flex", justifyContent: "center" }}
-        maxWidth="sm"
-        fullWidth
+        sx={{
+          width: "100%",
+          background: "rgba(255, 255, 255, 0.71)",
+          display: "flex",
+          justifyContent: "center",
+        }}
       >
         <Box
           component={"img"}

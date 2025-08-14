@@ -58,8 +58,6 @@ const Teacher = () => {
           </SwiperSlide>
         ))}
       </Swiper>
-
-      {/* Modal faqat bitta joyda turadi */}
       <TeacherModal
         handleClose={handleClose}
         open={open}
