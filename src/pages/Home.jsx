@@ -6,6 +6,7 @@ import FastMarque from "../components/FastMarque";
 import MyTeachers from "../components/myTeachers/MyTeachers";
 import WhyStudy from "../components/whyStudy/WhyStudy";
 import StudyResult from "../components/studyResult/StudyResult";
+import Cours from "../components/cours/Cours";
 
 const Home = () => {
   return (
@@ -15,6 +16,8 @@ const Home = () => {
       <FastMarque />
       <WhyStudy />
       <StudyResult />
+      <Cours />
+      <FastMarque />
       <MyTeachers />
     </Box>
   );
