@@ -42,9 +42,11 @@ const HeaderContent = () => {
           The Best <AnimatedText />
         </Typography>
         <Typography variant="h6">
-          “Best” o‘quv markazi 2014-yilda tashkil topgan. Bosh ofisimiz
-          Yakkasaroy tumanida joylashgan Sifatli ta'lim, natijaviylik,
-          mas'uliyatlilik. Avval tarbiya, keyin ta'lim.
+          “Best” o`z faoliyatini <b style={{ color: "#246cb6" }}>2011</b> -
+          yilda Jizzax shahrida boshlagan bo`lib xozirda o`zining{" "}
+          <b style={{ color: "#246cb6" }}>3</b> ta o`quv markazi,{" "}
+          <b style={{ color: "#246cb6" }}>3</b> ta bolalar bog`chasi va
+          <b style={{ color: "#246cb6" }}>1</b>ta xususiy o`rta maktabi bor !
         </Typography>
         <Button
           sx={{
