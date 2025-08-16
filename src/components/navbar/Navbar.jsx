@@ -81,9 +81,6 @@ const Navbar = () => {
                 Aloqa
               </Link>
             </Button>
-            <Button>
-              <DarkModeIcon />
-            </Button>
           </Box>
         </Toolbar>
       </Container>
