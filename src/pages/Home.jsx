@@ -8,6 +8,7 @@ import WhyStudy from "../components/whyStudy/WhyStudy";
 import StudyResult from "../components/studyResult/StudyResult";
 import Cours from "../components/cours/Cours";
 import OurBranches from "../components/ourBranches/OurBranches";
+import Footer from "../components/footer/Footer";
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
       <FastMarque />
       <MyTeachers />
       <OurBranches />
+      <Footer />
     </Box>
   );
 };
