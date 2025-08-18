@@ -5,13 +5,37 @@ import {
   AppBar,
   Box,
   Typography,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import DarkModeIcon from "@mui/icons-material/DarkMode";
+// import DarkModeIcon from "@mui/icons-material/DarkMode";
 import AnimatedText from "../header/AnimationText";
+import MenuIcon from "@mui/icons-material/Menu";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Navbar = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+  const [openMenu, setOpenMenu] = useState(false);
+
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [openMenu]);
+
+  const handleMenu = (arg) => {
+    setOpenMenu(arg);
+  };
+
   return (
     <AppBar
       position="static"
@@ -50,38 +74,112 @@ const Navbar = () => {
             <Typography fontSize={"25px"}>Best</Typography>
             <AnimatedText fontSize={"25px"} />
           </Link>
-          <Box>
-            <Button>
-              <Link style={{ textDecoration: "none", color: "black" }}>
-                Biz Haqimizda
-              </Link>
-            </Button>
-            <Button>
-              <Link style={{ textDecoration: "none", color: "black" }}>
-                Jamoa
-              </Link>
-            </Button>
-            <Button>
-              <Link style={{ textDecoration: "none", color: "black" }}>
-                Kurslar
-              </Link>
-            </Button>
-            <Button>
-              <Link style={{ textDecoration: "none", color: "black" }}>
-                Narxlar
-              </Link>
-            </Button>
-            <Button>
-              <Link style={{ textDecoration: "none", color: "black" }}>
-                Sertifikat
-              </Link>
-            </Button>
-            <Button>
-              <Link style={{ textDecoration: "none", color: "black" }}>
-                Aloqa
-              </Link>
-            </Button>
-          </Box>
+          {isMobile ? (
+            <Box>
+              <Button
+                onClick={() => {
+                  handleMenu(true);
+                }}
+              >
+                {" "}
+                <MenuIcon style={{ fontSize: "38px" }} />
+              </Button>
+              <Box
+                sx={{
+                  display: openMenu ? "flex" : "none",
+                  flexDirection: "column",
+                  position: "absolute",
+                  gap: "10px",
+                  backdropFilter: "blur(25px) saturate(200%)",
+                  WebkitBackdropFilter: "blur(25px) saturate(200%)",
+                  backgroundColor: "#246cb6",
+                  width: "300px",
+                  right: "-16px",
+                  padding: "30px",
+                  height: "100vh",
+                  top: "-20px",
+                  borderLeft: "2px solid rgba(36, 109, 182, 0.77)",
+                }}
+              >
+                <Button
+                  onClick={() => {
+                    handleMenu(false);
+                  }}
+                  sx={{
+                    position: "absolute",
+                    left: "10px",
+                    top: "10px",
+                    color: "white",
+                  }}
+                >
+                  <CloseIcon />
+                </Button>
+                <Button sx={{ marginTop: "50px" }}>
+                  <Link style={{ textDecoration: "none", color: "white" }}>
+                    Biz Haqimizda
+                  </Link>
+                </Button>
+                <Button>
+                  <Link style={{ textDecoration: "none", color: "white" }}>
+                    Jamoa
+                  </Link>
+                </Button>
+                <Button>
+                  <Link style={{ textDecoration: "none", color: "white" }}>
+                    Kurslar
+                  </Link>
+                </Button>
+                <Button>
+                  <Link style={{ textDecoration: "none", color: "white" }}>
+                    Narxlar
+                  </Link>
+                </Button>
+                <Button>
+                  <Link style={{ textDecoration: "none", color: "white" }}>
+                    Sertifikat
+                  </Link>
+                </Button>
+                <Button>
+                  <Link style={{ textDecoration: "none", color: "white" }}>
+                    Aloqa
+                  </Link>
+                </Button>
+              </Box>
+            </Box>
+          ) : (
+            <Box>
+              <Button>
+                <Link style={{ textDecoration: "none", color: "black" }}>
+                  Biz Haqimizda
+                </Link>
+              </Button>
+              <Button>
+                <Link style={{ textDecoration: "none", color: "black" }}>
+                  Jamoa
+                </Link>
+              </Button>
+              <Button>
+                <Link style={{ textDecoration: "none", color: "black" }}>
+                  Kurslar
+                </Link>
+              </Button>
+              <Button>
+                <Link style={{ textDecoration: "none", color: "black" }}>
+                  Narxlar
+                </Link>
+              </Button>
+              <Button>
+                <Link style={{ textDecoration: "none", color: "black" }}>
+                  Sertifikat
+                </Link>
+              </Button>
+              <Button>
+                <Link style={{ textDecoration: "none", color: "black" }}>
+                  Aloqa
+                </Link>
+              </Button>
+            </Box>
+          )}
         </Toolbar>
       </Container>
     </AppBar>
