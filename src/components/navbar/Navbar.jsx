@@ -94,7 +94,7 @@ const Navbar = () => {
                   WebkitBackdropFilter: "blur(25px) saturate(200%)",
                   backgroundColor: "#246cb6",
                   width: "300px",
-                  right: "-16px",
+                  right: "-24px",
                   padding: "30px",
                   height: "100vh",
                   top: "-20px",
