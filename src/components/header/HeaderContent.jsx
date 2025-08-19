@@ -1,6 +1,8 @@
 import { Box, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import AnimatedText from "./AnimationText";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const HeaderContent = (prop) => {
   const { isMobile } = prop;
@@ -72,9 +74,23 @@ const HeaderContent = (prop) => {
           perspective: "1000px", // 3D chuqurlik
         }}
       >
-        <Box
-          component="img"
+        <LazyLoadImage
+          alt="school"
           src="/headerImg.png"
+          effect="blur"
+          width="100%"
+          onMouseMove={handleMouseMove}
+          onMouseLeave={handleMouseLeave}
+          style={{
+            transition: "transform 0.2s ease",
+            transform: transform,
+            transformStyle: "preserve-3d",
+            borderRadius: "10px",
+          }}
+        />
+        {/* <Box
+          component="img"
+          src=""
           width="100%"
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
@@ -84,7 +100,7 @@ const HeaderContent = (prop) => {
             transformStyle: "preserve-3d",
             borderRadius: "10px",
           }}
-        />
+        /> */}
       </Box>
     </Box>
   );

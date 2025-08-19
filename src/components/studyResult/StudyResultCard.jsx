@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import React, { useState } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const resultStudy = [
   {
@@ -75,16 +77,17 @@ const StudyResultCard = (prop) => {
             <Typography variant={isMobile ? "main1" : "h6"} color="gray">
               {item.desc}
             </Typography>
-            <Box
-              component={"img"}
+            <LazyLoadImage
+              alt="school"
               src={item.boxImg}
-              sx={{
+              effect="blur"
+              width="200px"
+              style={{
                 position: "relative",
                 bottom: "-40px",
                 right: isMobile ? "20px" : "-280px",
-                width: "200px",
               }}
-            ></Box>
+            />
           </Box>
         );
       })}

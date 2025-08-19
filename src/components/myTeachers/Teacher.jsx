@@ -8,6 +8,8 @@ import "./teacher.css";
 import { Pagination } from "swiper/modules";
 import { teachersData } from "../../data/teacherData";
 import TeacherModal from "./TeacherModal";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const Teacher = (prop) => {
   const { isMobile } = prop;
@@ -45,7 +47,13 @@ const Teacher = (prop) => {
               cursor: "pointer",
             }}
           >
-            <Box component={"img"} src={teacher.image} alt={teacher.name} />
+            <LazyLoadImage
+              alt="school"
+              src={teacher.image}
+              effect="blur"
+              width="100%"
+              style={{ margin: "0 auto" }}
+            />
             <Typography
               variant="h6"
               sx={{
