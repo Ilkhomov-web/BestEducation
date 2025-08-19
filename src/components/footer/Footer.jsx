@@ -2,7 +2,8 @@ import React from "react";
 import FooterContent from "./FooterContent";
 import { Box, Container } from "@mui/material";
 
-const Footer = () => {
+const Footer = (prop) => {
+  const { isMobile } = prop;
   return (
     <Box
       sx={{
@@ -17,7 +18,7 @@ const Footer = () => {
       }}
     >
       <Container maxWidth={"lg"}>
-        <FooterContent />
+        <FooterContent isMobile={isMobile} />
       </Container>
     </Box>
   );

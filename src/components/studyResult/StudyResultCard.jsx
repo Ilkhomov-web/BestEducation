@@ -16,11 +16,13 @@ const resultStudy = [
   },
 ];
 
-const StudyResultCard = () => {
+const StudyResultCard = (prop) => {
+  const { isMobile } = prop;
   return (
     <Box
       sx={{
         display: "flex",
+        flexDirection: isMobile ? "column" : "row",
         justifyContent: "space-between",
         perspective: "1000px",
       }}
@@ -48,7 +50,7 @@ const StudyResultCard = () => {
           <Box
             key={item.id}
             sx={{
-              width: "49%",
+              width: isMobile ? "100%" : "48%",
               height: "300px",
               padding: "20px",
               overflow: "hidden",
@@ -62,14 +64,15 @@ const StudyResultCard = () => {
               transform: transform,
               transformStyle: "preserve-3d",
               cursor: "pointer",
+              marginTop: isMobile ? "20px" : "0px",
             }}
             onMouseMove={handleMouseMove}
             onMouseLeave={handleMouseLeave}
           >
-            <Typography variant="h4" color="#246cb6">
+            <Typography variant={isMobile ? "h5" : "h4"} color="#246cb6">
               {item.title}
             </Typography>
-            <Typography variant="h6" color="gray">
+            <Typography variant={isMobile ? "main1" : "h6"} color="gray">
               {item.desc}
             </Typography>
             <Box
@@ -77,8 +80,8 @@ const StudyResultCard = () => {
               src={item.boxImg}
               sx={{
                 position: "relative",
-                bottom: "-20px",
-                right: "-280px",
+                bottom: "-40px",
+                right: isMobile ? "20px" : "-280px",
                 width: "200px",
               }}
             ></Box>

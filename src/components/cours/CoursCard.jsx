@@ -10,7 +10,8 @@ import {
 import React, { useState } from "react";
 import coursData from "../../data/coursData";
 
-const CoursCard = () => {
+const CoursCard = (prop) => {
+  const { isMobile } = prop;
   const [allCours, setAllCours] = useState(coursData);
 
   const handleCategoryCours = (category) => {
@@ -46,8 +47,8 @@ const CoursCard = () => {
           sx={{
             background: "#246cb6",
             color: "white",
-            width: "300px",
-            fontSize: "18px",
+            width: isMobile ? "100px" : "300px",
+            fontSize: isMobile ? "14px" : "18px",
           }}
           onClick={() => handleCategoryCours("all")}
         >
@@ -57,8 +58,8 @@ const CoursCard = () => {
           sx={{
             background: "#246cb6",
             color: "white",
-            width: "300px",
-            fontSize: "18px",
+            width: isMobile ? "100px" : "300px",
+            fontSize: isMobile ? "14px" : "18px",
           }}
           onClick={() => handleCategoryCours("language")}
         >
@@ -68,8 +69,8 @@ const CoursCard = () => {
           sx={{
             background: "#246cb6",
             color: "white",
-            width: "300px",
-            fontSize: "18px",
+            width: isMobile ? "100px" : "300px",
+            fontSize: isMobile ? "14px" : "18px",
           }}
           onClick={() => handleCategoryCours("science")}
         >
@@ -80,8 +81,8 @@ const CoursCard = () => {
         sx={{
           display: "flex",
           flexWrap: "wrap",
-          justifyContent: "left",
-          gap: "50px",
+          justifyContent: isMobile ? "center" : "left",
+          gap: isMobile ? "20px" : "50px",
         }}
       >
         {allCours.map((item) => {

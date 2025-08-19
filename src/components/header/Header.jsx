@@ -1,10 +1,11 @@
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import React from "react";
 
 // import RainbowBackground from "../header/RainbowBackground";
 import HeaderContent from "./HeaderContent";
 
-const Header = () => {
+const Header = (prop) => {
+  const { isMobile } = prop;
   return (
     <Box
       sx={{
@@ -36,7 +37,7 @@ const Header = () => {
             padding: "50px",
           }}
         >
-          <HeaderContent />
+          <HeaderContent isMobile={isMobile} />
         </Box>
       </Container>
       {/* </RainbowBackground> */}

@@ -3,13 +3,14 @@ import React, { useState } from "react";
 import { whyStudy } from "../../data/whyStudy";
 
 const WhyStudyCard = (prop) => {
+  const { isMobile } = prop;
   return (
     <Box
       sx={{
         display: "flex",
         alignItems: "center",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: isMobile ? "center" : "space-between",
         gap: "20px",
         perspective: "1000px",
       }}
@@ -37,7 +38,7 @@ const WhyStudyCard = (prop) => {
           <Box
             key={item.id}
             sx={{
-              width: "49%",
+              width: isMobile ? "100%" : "49%",
               padding: "50px 30px",
               display: "flex",
               flexDirection: "column",

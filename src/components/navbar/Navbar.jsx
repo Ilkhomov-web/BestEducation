@@ -5,8 +5,6 @@ import {
   AppBar,
   Box,
   Typography,
-  useMediaQuery,
-  useTheme,
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -15,9 +13,8 @@ import AnimatedText from "../header/AnimationText";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-const Navbar = () => {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
+const Navbar = (prop) => {
+  const { isMobile } = prop;
   const [openMenu, setOpenMenu] = useState(false);
 
   useEffect(() => {

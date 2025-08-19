@@ -3,7 +3,8 @@ import React, { useState } from "react";
 import OurBranchesCard from "./OurBranchesCard";
 import OurBranchesMap from "./OurBranchesMap";
 
-const OurBranches = () => {
+const OurBranches = (prop) => {
+  const { isMobile } = prop;
   const [selectedBranch, setSelectedBranch] = useState(null);
 
   return (
@@ -18,14 +19,28 @@ const OurBranches = () => {
       }}
     >
       <Container maxWidth="lg">
-        <Typography variant="h3" marginBottom={"50px"} color="white">
+        <Typography
+          variant={isMobile ? "h5" : "h3"}
+          marginBottom={"50px"}
+          color="white"
+        >
           Bizni Xaritadan Ko'ring
         </Typography>
-        <Box sx={{ display: "flex", justifyContent: "space-between" }}>
-          <Box sx={{ width: "35%" }}>
-            <OurBranchesCard setSelectedBranch={setSelectedBranch} />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "space-between",
+            flexDirection: isMobile ? "column" : "row",
+            gap: isMobile ? "20px" : "0px",
+          }}
+        >
+          <Box sx={{ width: isMobile ? "100%" : "35%" }}>
+            <OurBranchesCard
+              isMobile={isMobile}
+              setSelectedBranch={setSelectedBranch}
+            />
           </Box>
-          <Box sx={{ width: "60%" }}>
+          <Box sx={{ width: isMobile ? "100%" : "60%" }}>
             <OurBranchesMap selectedBranch={selectedBranch} />
           </Box>
         </Box>

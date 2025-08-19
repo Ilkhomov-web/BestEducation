@@ -9,7 +9,8 @@ import React, { useState } from "react";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ourLocation from "../../data/ourLocation";
 
-const OurBranchesCard = ({ setSelectedBranch }) => {
+const OurBranchesCard = (prop) => {
+  const { setSelectedBranch, isMobile } = prop;
   const [expanded, setExpanded] = useState(false);
 
   const handleChange = (id) => (event, isExpanded) => {

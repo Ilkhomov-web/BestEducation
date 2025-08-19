@@ -2,7 +2,8 @@ import { Box, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
 import AnimatedText from "./AnimationText";
 
-const HeaderContent = () => {
+const HeaderContent = (prop) => {
+  const { isMobile } = prop;
   const [transform, setTransform] = useState("rotateX(0deg) rotateY(0deg)");
 
   const handleMouseMove = (e) => {
@@ -25,23 +26,24 @@ const HeaderContent = () => {
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
+        flexDirection: isMobile ? "column" : "row",
       }}
     >
       <Box
         sx={{
-          width: "45%",
+          width: isMobile ? "100%" : "45%",
           display: "flex",
           flexDirection: "column",
           gap: "20px",
         }}
       >
         <Typography
-          variant="h3"
+          variant={isMobile ? "h5" : "h3"}
           sx={{ display: "flex", alignItems: "center", gap: "10px" }}
         >
           The Best <AnimatedText />
         </Typography>
-        <Typography variant="h6">
+        <Typography variant={isMobile ? "body1" : "h6"}>
           “Best” o`z faoliyatini <b style={{ color: "#246cb6" }}>2011</b> -
           yilda Jizzax shahrida boshlagan bo`lib xozirda o`zining{" "}
           <b style={{ color: "#246cb6" }}>3</b> ta o`quv markazi,{" "}
@@ -66,7 +68,7 @@ const HeaderContent = () => {
       </Box>
       <Box
         sx={{
-          width: "50%",
+          width: isMobile ? "100%" : "50%",
           perspective: "1000px", // 3D chuqurlik
         }}
       >

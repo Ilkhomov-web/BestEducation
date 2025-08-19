@@ -52,7 +52,8 @@ const navigateIcon = [
   },
 ];
 
-const FooterContent = () => {
+const FooterContent = (prop) => {
+  const { isMobile } = prop;
   return (
     <Box>
       <Typography
@@ -69,12 +70,18 @@ const FooterContent = () => {
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
+          flexDirection: isMobile ? "row" : "column",
+          justifyContent: isMobile ? "space-between" : "center",
         }}
       >
         <Box>
-          <List sx={{ display: "flex", justifyContent: "center" }}>
+          <List
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: isMobile ? "column" : "row",
+            }}
+          >
             {navigationData.map((item) => {
               return (
                 <Link
@@ -89,7 +96,13 @@ const FooterContent = () => {
           </List>
         </Box>
         <Box>
-          <List sx={{ display: "flex", justifyContent: "center" }}>
+          <List
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: isMobile ? "column" : "row",
+            }}
+          >
             {navigateIcon.map((item) => {
               return (
                 <Link
@@ -103,27 +116,28 @@ const FooterContent = () => {
             })}
           </List>
         </Box>
-        <hr style={{ margin: "20px 0px", border: "2px solid #246cb6" }} />
-        <Typography
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "6px",
-            color: "gray",
+      </Box>
+      <hr style={{ margin: "20px 0px", border: "2px solid #246cb6" }} />
+      <Typography
+        variant={isMobile ? "body2" : "body1"}
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          gap: "6px",
+          color: "gray",
+        }}
+      >
+        Copyright ©2025 All rights reserved | Website by{" "}
+        <Link
+          style={{
+            textDecoration: "none",
+            color: "#246cb6",
+            fontWeight: "bold",
           }}
         >
-          Copyright ©2025 All rights reserved | Website by{" "}
-          <Link
-            style={{
-              textDecoration: "none",
-              color: "#246cb6",
-              fontWeight: "bold",
-            }}
-          >
-            RealCode
-          </Link>
-        </Typography>
-      </Box>
+          RealCode
+        </Link>
+      </Typography>
     </Box>
   );
 };

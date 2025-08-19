@@ -2,7 +2,8 @@ import { Box, Container, Typography } from "@mui/material";
 import React from "react";
 import CoursCard from "./CoursCard";
 
-const Cours = () => {
+const Cours = (prop) => {
+  const { isMobile } = prop;
   return (
     <Box
       sx={{
@@ -13,10 +14,14 @@ const Cours = () => {
       }}
     >
       <Container maxWidth={"lg"}>
-        <Typography variant="h3" color="white" margin={"30px 0px"}>
+        <Typography
+          variant={isMobile ? "h5" : "h3"}
+          color="white"
+          margin={"30px 0px"}
+        >
           Kurslar
         </Typography>
-        <CoursCard />
+        <CoursCard isMobile={isMobile} />
       </Container>
     </Box>
   );

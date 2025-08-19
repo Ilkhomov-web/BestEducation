@@ -3,12 +3,13 @@ import React from "react";
 import StudyResultCard from "./StudyResultCard";
 import AnimatedText from "../header/AnimationText";
 
-const StudyResult = () => {
+const StudyResult = (prop) => {
+  const { isMobile } = prop;
   return (
     <Box>
       <Container maxWidth={"lg"}>
         <Typography
-          variant="h3"
+          variant={isMobile ? "h6" : "h4"}
           sx={{
             display: "flex",
             alignItems: "center",
@@ -18,11 +19,15 @@ const StudyResult = () => {
         >
           “Best <AnimatedText />” natijasi raqamlarda
         </Typography>
-        <Typography variant="h6" color="gray" sx={{ margin: "20px 0px" }}>
+        <Typography
+          variant={isMobile ? "main1" : "h6"}
+          color="gray"
+          sx={{ margin: "20px 0px" }}
+        >
           2018-yil oktyabr oyidan 2024-yil iyul oyigacha bo‘lgan statistika
         </Typography>
         <Box>
-          <StudyResultCard />
+          <StudyResultCard isMobile={isMobile} />
         </Box>
       </Container>
     </Box>

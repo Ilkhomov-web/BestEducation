@@ -9,7 +9,8 @@ import { Pagination } from "swiper/modules";
 import { teachersData } from "../../data/teacherData";
 import TeacherModal from "./TeacherModal";
 
-const Teacher = () => {
+const Teacher = (prop) => {
+  const { isMobile } = prop;
   const [open, setOpen] = useState(false);
   const [selectedTeacher, setSelectedTeacher] = useState(null);
 
@@ -26,7 +27,7 @@ const Teacher = () => {
   return (
     <Box sx={{ margin: "20px 0px" }}>
       <Swiper
-        slidesPerView={3}
+        slidesPerView={isMobile ? 1 : 3}
         spaceBetween={30}
         pagination={{
           clickable: true,

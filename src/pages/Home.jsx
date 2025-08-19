@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "../components/navbar/Navbar";
-import { Box } from "@mui/material";
+import { Box, useMediaQuery, useTheme } from "@mui/material";
 import Header from "../components/header/Header";
 import FastMarque from "../components/FastMarque";
 import MyTeachers from "../components/myTeachers/MyTeachers";
@@ -11,18 +11,20 @@ import OurBranches from "../components/ourBranches/OurBranches";
 import Footer from "../components/footer/Footer";
 
 const Home = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <Box>
-      <Navbar />
-      <Header />
+      <Navbar isMobile={isMobile} />
+      <Header isMobile={isMobile} />
       <FastMarque />
-      <WhyStudy />
-      <StudyResult />
-      <Cours />
+      <WhyStudy isMobile={isMobile} />
+      <StudyResult isMobile={isMobile} />
+      <Cours isMobile={isMobile} />
       <FastMarque />
-      <MyTeachers />
-      <OurBranches />
-      <Footer />
+      <MyTeachers isMobile={isMobile} />
+      <OurBranches isMobile={isMobile} />
+      <Footer isMobile={isMobile} />
     </Box>
   );
 };
