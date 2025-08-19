@@ -4,11 +4,12 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
 import coursData from "../../data/coursData";
+import { LazyLoadImage } from "react-lazy-load-image-component";
+import "react-lazy-load-image-component/src/effects/blur.css";
 
 const CoursCard = (prop) => {
   const { isMobile } = prop;
@@ -106,10 +107,13 @@ const CoursCard = (prop) => {
                 },
               }}
             >
-              <CardMedia
-                sx={{ width: "300px", height: "160px" }}
-                image={item.coursImg}
+              <LazyLoadImage
+                alt="school"
+                src={item.coursImg}
+                effect="blur"
+                style={{ width: "300px", height: "260px" }}
               />
+
               <CardContent>
                 <Typography variant="h5" color="#246cb6" marginBottom={"10px"}>
                   {item.courseName}
